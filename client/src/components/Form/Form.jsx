@@ -53,7 +53,8 @@ const Form = ({ currentId, setCurrentId }) => {
         autoComplete="off"
         noValidate
         className={classes.form}
-        onSubmit={handleSubmit}>
+        onSubmit={handleSubmit}
+      >
         <Typography variant="h6">
           {currentId ? "Editing" : "Create"} Memory
         </Typography>
@@ -91,7 +92,9 @@ const Form = ({ currentId, setCurrentId }) => {
           label="Tags"
           fullWidth
           value={postData.tags}
-          onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
+          onChange={(e) =>
+            setPostData({ ...postData, tags: e.target.value.split(",") })
+          }
         />
         <div className={classes.fileInput}>
           <FileBase
@@ -108,7 +111,8 @@ const Form = ({ currentId, setCurrentId }) => {
           color="primary"
           size="large"
           type="submit"
-          fullWidth>
+          fullWidth
+        >
           Submit
         </Button>
         <Button
@@ -116,7 +120,8 @@ const Form = ({ currentId, setCurrentId }) => {
           color="secondary"
           size="small"
           onClick={clear}
-          fullWidth>
+          fullWidth
+        >
           Clear
         </Button>
       </form>

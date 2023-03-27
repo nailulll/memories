@@ -39,7 +39,8 @@ const Post = ({ post, setCurrentId }) => {
           size="small"
           onClick={() => {
             setCurrentId(post._id);
-          }}>
+          }}
+        >
           <MoreHorizIcon fontSize="medium" />
         </Button>
       </div>
@@ -52,7 +53,12 @@ const Post = ({ post, setCurrentId }) => {
         {post.title}
       </Typography>
       <CardContent>
-        <Typography className={classes.details} variant="h5" gutterBottom>
+        <Typography
+          className={classes.details}
+          variant="body2"
+          color="textSecondary"
+          component="p"
+        >
           {post.message}
         </Typography>
       </CardContent>
@@ -60,15 +66,17 @@ const Post = ({ post, setCurrentId }) => {
         <Button
           size="small"
           color="primary"
-          onClick={() => dispatch(likePost(post._id))}>
+          onClick={() => dispatch(likePost(post._id))}
+        >
           <ThumbUpAltIcon fontSize="medium" />
-          Like
+          &nbsp; Like &nbsp;
           {post.likeCount}
         </Button>
         <Button
           size="small"
           color="primary"
-          onClick={() => dispatch(deletePost(post._id))}>
+          onClick={() => dispatch(deletePost(post._id))}
+        >
           <DeleteIcon fontSize="medium" />
           Delete
         </Button>
